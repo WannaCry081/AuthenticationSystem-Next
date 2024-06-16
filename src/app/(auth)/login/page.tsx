@@ -1,7 +1,120 @@
+"use client";
+
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { 
+  Card, 
+  CardContent, 
+  CardFooter, 
+  CardHeader 
+} from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
+const formSchema = Yup.object({
+  email : Yup.string()
+    .required("Email Address is required.")
+    .email("Invalid Email Address")
+    .min(5, "Email Address must be at least 5 characters.")
+    .max(100, "Email Address can be at most 100 characters."),
+  password: Yup.string()
+    .required("Password is required.")
+    .min(8, "Password must be at least 8 characters.")
+    .max(100, "Password can be at most 100 characters."),
+});
+
+
 export default function LoginPage() {
+
+  const form = useForm({
+    resolver: yupResolver(formSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = (values: any) => {
+    alert(values.password);
+  };
+
   return (
-    <section>
-      <h1>Login Page</h1>
+    <section className="p-4 sm:p-6 md:p-8 relative top-32 sm:top-20">
+      <Card className="mx-auto max-w-lg bg-neutral-900 border border-neutral-700 text-neutral-300 font-mono">
+        <CardHeader>
+          <h1 className="text-2xl sm:text-4xl">Login.</h1>
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form 
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="uppercase text-xs font-bold text-neutral-500">
+                      Email
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        className="bg-neutral-700 border-0"
+                        placeholder="Enter Email"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField 
+                control={form.control}
+                name="password"
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel className="uppercase text-xs font-bold text-neutral-500">
+                      Password
+                    </FormLabel>
+                    <FormControl>
+                      <Input 
+                        type="password"
+                        className="bg-neutral-700 border-0"
+                        placeholder="Enter Password"
+                        {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <a 
+                href="" 
+                className="float-right font-bold text-sm">
+                Forgot Password?
+              </a>
+              <Button 
+                type="submit"
+                className="bg-neutral-700 w-full hover:bg-neutral-950">
+                  Submit
+              </Button>
+
+            </form>
+          </Form>
+        </CardContent>
+        <CardFooter>
+
+        </CardFooter>
+      </Card>
     </section>
   );
 }
