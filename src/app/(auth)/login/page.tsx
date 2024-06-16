@@ -48,10 +48,11 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="p-4 sm:p-6 md:p-8 relative top-32 sm:top-20">
+    <section className="p-4 sm:p-6 md:p-8 relative top-32 sm:top-16">
       <Card className="mx-auto max-w-lg bg-neutral-900 border border-neutral-700 text-neutral-300 font-mono">
         <CardHeader>
-          <h1 className="text-2xl sm:text-4xl">Login.</h1>
+          <h1 className="text-2xl sm:text-5xl">Login.</h1>
+          <p className="py-2">Welcome back! Sign in with your verified email and password to access your account.</p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -112,7 +113,9 @@ export default function LoginPage() {
           </Form>
         </CardContent>
         <CardFooter>
-
+          <p className="uppercase text-xs text-neutral-500 text-center w-full">
+            ©2024 WannaCry081
+          </p>
         </CardFooter>
       </Card>
     </section>
