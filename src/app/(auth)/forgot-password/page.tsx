@@ -45,11 +45,11 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="p-4 sm:p-6 md:p-8 relative top-8 bg-inherit">
-      <Card className="mx-auto max-w-lg bg-neutral-900 border border-neutral-700 text-neutral-300 font-mono">
+    <section className="fixed py-4 sm:p-6 md:p-8 sm:relative sm:top-4 bg-inherit w-full mx-auto">
+      <Card className="mx-auto max-w-lg bg-neutral-900 border-0 sm:border border-neutral-700 text-neutral-300 font-mono">
         <CardHeader>
-          <h1 className="text-2xl sm:text-4xl">Forgot Password.</h1>
-          <p className="pt-2">
+          <h1 className="text-2xl sm:text-4xl text-neutral-100">Forgot Password.</h1>
+          <p className="pt-2 text-sm sm:text-base font-medium">
             Welcome! Enter your email to receive a link to reset your password and regain access to your account.
           </p>
         </CardHeader>
@@ -93,7 +93,7 @@ export default function LoginPage() {
           </Form>
         </CardContent>
         <CardFooter>
-          <Link href="/login" className="text-sm text-neutral-500 text-center w-full font-semibold hover:text-neutral-300">
+          <Link href="/login" className="text-sm sm:text-base text-neutral-500 text-center w-full font-medium hover:text-neutral-300">
             Remember your password?
           </Link>
         </CardFooter>

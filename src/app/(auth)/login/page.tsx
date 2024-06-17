@@ -50,11 +50,11 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="p-4 sm:p-6 md:p-8 relative top-8 bg-inherit">
-      <Card className="mx-auto max-w-lg bg-neutral-900 border border-neutral-700 text-neutral-300 font-mono">
+    <section className="fixed py-4 sm:p-6 md:p-8 sm:relative sm:top-4 bg-inherit mx-auto w-full">
+      <Card className="mx-auto max-w-lg bg-neutral-900 border-0 sm:border border-neutral-700 text-neutral-300 font-mono">
         <CardHeader>
-          <h1 className="text-2xl sm:text-5xl">Login.</h1>
-          <p className="pt-2">Welcome back! Sign in with your verified email and password to access your account.</p>
+          <h1 className="text-2xl sm:text-5xl text-neutral-100">Login.</h1>
+          <p className="pt-2 text-sm sm:text-base font-medium">Welcome back! Sign in with your verified email and password to access your account.</p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -104,7 +104,7 @@ export default function LoginPage() {
 
               <Link 
                 href="/forgot-password" 
-                className="float-right text-sm text-neutral-500 font-semibold hover:text-neutral-300">
+                className="float-right text-sm sm:text-base text-neutral-500 font-medium hover:text-neutral-300">
                 Forgot Password?
               </Link>
 
@@ -119,7 +119,7 @@ export default function LoginPage() {
           </Form>
         </CardContent>
         <CardFooter>
-          <Link href="/register" className="text-sm text-neutral-500 text-center w-full font-semibold hover:text-neutral-300">
+          <Link href="/register" className="text-sm sm:text-base text-neutral-500 text-center w-full font-medium hover:text-neutral-300">
             Don't have an account?
           </Link>
         </CardFooter>

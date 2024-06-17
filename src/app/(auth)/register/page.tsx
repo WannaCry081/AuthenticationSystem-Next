@@ -59,11 +59,11 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="p-4 sm:p-6 md:p-8 relative top-8 bg-inherit">
-      <Card className="mx-auto max-w-lg bg-neutral-900 border border-neutral-700 text-neutral-300 font-mono">
+    <section className="py-4 sm:p-6 md:p-8 relative sm:top-4 bg-inherit">
+      <Card className="mx-auto max-w-lg bg-neutral-900 border-0 sm:border border-neutral-700 text-neutral-300 font-mono">
         <CardHeader>
-          <h1 className="text-2xl sm:text-5xl">Join Now.</h1>
-          <p className="pt-2">Welcome! Create an account with your username, email, and password to get started.</p>
+          <h1 className="text-2xl sm:text-5xl text-neutral-100">Join Now.</h1>
+          <p className="pt-2 text-sm sm:text-base font-medium">Welcome! Create an account with your username, email, and password to get started.</p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -162,7 +162,7 @@ export default function LoginPage() {
           </Form>
         </CardContent>
         <CardFooter>
-          <Link href="/login" className="text-sm text-neutral-500 text-center w-full font-semibold hover:text-neutral-300">
+          <Link href="/login" className="text-sm sm:text-base text-neutral-500 text-center w-full font-medium hover:text-neutral-300">
             Already have an account?
           </Link>
         </CardFooter>
