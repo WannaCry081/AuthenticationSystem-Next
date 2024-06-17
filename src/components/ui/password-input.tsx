@@ -14,6 +14,8 @@ const PasswordInput = ({ className, placeholder, field } : PasswordInputProps) =
   return (
     <div className="relative flex items-center">
       <Input 
+        minLength={8}
+        maxLength={101}
         type={(showPassword) ? "text" : "password"}
         className={`${className} rounded-r-none focus-visible:ring-0`}
         placeholder={placeholder}
