@@ -7,7 +7,7 @@ interface AuthLayoutProps {
 
 const AuthLayout = ({ children } : AuthLayoutProps ) => {
   return (
-    <main className="bg-neutral-900 min-h-screen text-white">
+    <main className="bg-neutral-900 min-h-screen">
       {children}
     </main>
   );
