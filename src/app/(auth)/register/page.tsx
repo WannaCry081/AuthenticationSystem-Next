@@ -142,7 +142,7 @@ export default function LoginPage() {
                     <FormControl>
                       <PasswordInput 
                         className="bg-neutral-700 border-0"
-                        placeholder="Re-enter your Password"
+                        placeholder="Re-enter your password"
                         field={field} />
                     </FormControl>
                     <FormMessage />

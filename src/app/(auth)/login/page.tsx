@@ -54,7 +54,7 @@ export default function LoginPage() {
       <Card className="mx-auto max-w-lg bg-neutral-900 border border-neutral-700 text-neutral-300 font-mono">
         <CardHeader>
           <h1 className="text-2xl sm:text-5xl">Login.</h1>
-          <p className="py-2">Welcome back! Sign in with your verified email and password to access your account.</p>
+          <p className="pt-2">Welcome back! Sign in with your verified email and password to access your account.</p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
