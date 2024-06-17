@@ -21,11 +21,11 @@ const PasswordInput = ({ className, placeholder, field } : PasswordInputProps) =
         placeholder={placeholder}
         {...field} />
 
-        <p 
+        <span
           onClick={() => setShowPassword(prev => !prev)}
-          className={`cursor-pointer h-10 px-4 py-2 text-sm underline rounded-r-sm bg-neutral-800 align-middle`}>
-          show
-        </p>
+          className="cursor-pointer h-12 px-4 py-2 rounded-r-sm bg-neutral-800 flex place-items-center">
+          <p className="underline text-sm">show</p>
+        </span>
     </div>
   );
 }
