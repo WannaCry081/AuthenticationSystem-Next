@@ -2,6 +2,7 @@
 
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
 import { 
   Card, 
   CardContent, 
@@ -19,6 +20,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { PasswordInput } from "@/components/ui/password-input";
 
 const formSchema = Yup.object({
   email : Yup.string()
@@ -48,7 +50,7 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="p-4 sm:p-6 md:p-8 relative top-32 sm:top-16">
+    <section className="p-4 sm:p-6 md:p-8 relative top-8 bg-inherit">
       <Card className="mx-auto max-w-lg bg-neutral-900 border border-neutral-700 text-neutral-300 font-mono">
         <CardHeader>
           <h1 className="text-2xl sm:text-5xl">Login.</h1>
@@ -65,12 +67,14 @@ export default function LoginPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-neutral-500">
-                      Email
+                      Email Address
                     </FormLabel>
                     <FormControl>
                       <Input
+                        minLength={5}
+                        maxLength={101}
                         className="bg-neutral-700 border-0"
-                        placeholder="Enter Email"
+                        placeholder="Enter your email address"
                         {...field}
                       />
                     </FormControl>
@@ -88,34 +92,36 @@ export default function LoginPage() {
                       Password
                     </FormLabel>
                     <FormControl>
-                      <Input 
-                        type="password"
+                      <PasswordInput
                         className="bg-neutral-700 border-0"
-                        placeholder="Enter Password"
-                        {...field} />
+                        placeholder="Enter your password"
+                        field={field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <a 
-                href="" 
-                className="float-right font-bold text-sm">
+
+              <Link 
+                href="/forgot-passwrd" 
+                className="float-right text-sm text-neutral-500 font-semibold hover:text-neutral-300">
                 Forgot Password?
-              </a>
+              </Link>
+
               <Button 
                 type="submit"
-                className="bg-neutral-700 w-full hover:bg-neutral-950">
-                  Submit
+                size="lg"
+                className="bg-neutral-700 w-full hover:bg-neutral-800">
+                  Login
               </Button>
 
             </form>
           </Form>
         </CardContent>
         <CardFooter>
-          <p className="uppercase text-xs text-neutral-500 text-center w-full">
-            ©2024 WannaCry081
-          </p>
+          <Link href="/register" className="text-sm text-neutral-500 text-center w-full font-semibold hover:text-neutral-300">
+            Don't have an account?
+          </Link>
         </CardFooter>
       </Card>
     </section>
