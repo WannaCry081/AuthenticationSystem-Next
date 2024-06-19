@@ -1,3 +1,3 @@
-export { forgotPasswordSchema } from "@/schemas/auth/forgotPasswordSchema";
-export { loginSchema } from "@/schemas/auth/loginSchema";
-export { registerSchema } from "@/schemas/auth/registerSchema";
+export { ForgotPasswordSchema } from "@/schemas/auth/forgot-password";
+export { LoginSchema } from "@/schemas/auth/login";
+export { RegisterSchema } from "@/schemas/auth/register";
