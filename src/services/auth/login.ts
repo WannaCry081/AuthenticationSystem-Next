@@ -1,16 +1,17 @@
-const baseUrl = "http://localhost:8000/";
-
+import { axiosInstance } from "@/constants/axiosInstance";
 
 interface LoginServiceProps {
-  email : string;
-  password : string;
+  email: string;
+  password: string;
+}
+
+const LoginService = async (data: LoginServiceProps) => {
+  try {
+    const response = await axiosInstance.post("auth/login/", data);
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };
-
-const LoginService = async (data : LoginServiceProps) => {
-  const url = new URL("api/v1/auth/login", baseUrl);
-
-
-};
-
 
 export { LoginService };
