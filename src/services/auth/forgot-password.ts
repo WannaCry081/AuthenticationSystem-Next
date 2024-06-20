@@ -1,15 +1,16 @@
-const baseUrl = "http://localhost:8000/";
-
+import { axiosInstance } from "@/constants/axiosInstance";
 
 interface ForgotPasswordServiceProps {
-  email : string;
+  email: string;
+}
+
+const ForgotPasswordService = async (data: ForgotPasswordServiceProps) => {
+  try {
+    const response = await axiosInstance.post("auth/reset-password/", data);
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };
-
-const ForgotPasswordService = async (data : ForgotPasswordServiceProps) => {
-  const url = new URL("api/v1/auth/login", baseUrl);
-
-
-};
-
 
 export { ForgotPasswordService };
