@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { LoginSchema } from "@/schemas";
 import { LoginService } from "@/services";
+import { cookieConfig } from "@/constants/config";
 
 const Login = async (values: z.infer<typeof LoginSchema>) => {
   const cookieStore = cookies();
@@ -26,8 +27,8 @@ const Login = async (values: z.infer<typeof LoginSchema>) => {
     };
   }
 
-  cookieStore.set("access", response.data.access);
-  cookieStore.set("refresh", response.data.refresh);
+  cookieStore.set("access", response.data.access, cookieConfig(30));
+  cookieStore.set("refresh", response.data.refresh, cookieConfig(60));
   redirect("/");
 };
 
