@@ -30,7 +30,7 @@ const PasswordInput = ({
       />
       <span
         onClick={() => setShowPassword((prev) => !prev)}
-        className="cursor-pointer h-10 px-4 py-2 rounded-r-sm bg-neutral-800 flex place-items-center sm:h-12"
+        className="cursor-pointer px-4 py-2 rounded-r-sm bg-neutral-800 flex place-items-center h-12"
       >
         <p className="underline text-sm">{showPassword ? "hide" : "show"}</p>
       </span>

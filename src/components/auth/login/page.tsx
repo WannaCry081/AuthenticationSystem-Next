@@ -73,7 +73,7 @@ export default function LoginView() {
                       disabled={isPending}
                       minLength={5}
                       maxLength={101}
-                      className="bg-neutral-700 border-0 text-base sm:h-12"
+                      className="bg-neutral-700 border-0 text-base h-12"
                       placeholder="Enter your email address"
                       {...field}
                     />
@@ -94,7 +94,7 @@ export default function LoginView() {
                   <FormControl>
                     <PasswordInput
                       disabled={isPending}
-                      className="bg-neutral-700 border-0 text-base sm:h-12"
+                      className="bg-neutral-700 border-0 text-base h-12"
                       placeholder="Enter your password"
                       field={field}
                     />

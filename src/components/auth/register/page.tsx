@@ -77,7 +77,7 @@ export default function RegisterView() {
                       disabled={isPending}
                       minLength={2}
                       maxLength={41}
-                      className="bg-neutral-700 border-0 text-base sm:h-12"
+                      className="bg-neutral-700 border-0 text-base h-12"
                       placeholder="JohnnyDoe123"
                       {...field}
                     />
@@ -100,7 +100,7 @@ export default function RegisterView() {
                       disabled={isPending}
                       minLength={5}
                       maxLength={101}
-                      className="bg-neutral-700 border-0 text-base sm:h-12"
+                      className="bg-neutral-700 border-0 text-base h-12"
                       placeholder="JohnDoe@example.com"
                       {...field}
                     />
@@ -120,7 +120,7 @@ export default function RegisterView() {
                   <FormControl>
                     <PasswordInput
                       disabled={isPending}
-                      className="bg-neutral-700 border-0 text-base sm:h-12"
+                      className="bg-neutral-700 border-0 text-base h-12"
                       placeholder="Enter your password"
                       field={field}
                     />
@@ -141,7 +141,7 @@ export default function RegisterView() {
                   <FormControl>
                     <PasswordInput
                       disabled={isPending}
-                      className="bg-neutral-700 border-0 text-base sm:h-12"
+                      className="bg-neutral-700 border-0 text-base h-12"
                       placeholder="Re-enter your password"
                       field={field}
                     />
