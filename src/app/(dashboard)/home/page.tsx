@@ -1,6 +1,6 @@
 import { HomeView } from "@/components/dashboard"
 
-export function HomePage() {
+export default function HomePage() {
   return (
     <>
       <HomeView />
