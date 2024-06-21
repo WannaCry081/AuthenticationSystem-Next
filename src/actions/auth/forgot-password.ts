@@ -1,10 +1,13 @@
 "use server";
 import * as z from "zod";
+import { redirect } from "next/navigation";
 import { ForgotPasswordSchema } from "@/schemas";
 import { ForgotPasswordService } from "@/services";
 
 const ForgotPassword = async (values: z.infer<typeof ForgotPasswordSchema>) => {
-  const validatedFields = ForgotPasswordSchema.safeParse(values);
+  const validatedFields = ForgotPasswordSchema.safeParse({
+    email: values.email,
+  });
 
   if (!validatedFields.success) {
     return {
@@ -14,9 +17,13 @@ const ForgotPassword = async (values: z.infer<typeof ForgotPasswordSchema>) => {
 
   const response = await ForgotPasswordService(validatedFields.data);
 
-  return {
-    success: "Logged in successfully",
-  };
+  if (!response) {
+    return {
+      error: "Invalid Credentials",
+    };
+  }
+
+  redirect("/forgot-password/reset-password");
 };
 
 export { ForgotPassword };
