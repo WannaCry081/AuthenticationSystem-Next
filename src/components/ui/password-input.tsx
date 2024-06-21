@@ -1,34 +1,41 @@
-import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { useState, InputHTMLAttributes } from "react";
 import { Input } from "@/components/ui/input";
 
+interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  disabled?: boolean;
+  className?: string;
+  placeholder: string;
+  field: InputHTMLAttributes<HTMLInputElement>;
+}
 
-interface PasswordInputProps {
-  className : string,
-  placeholder : string,
-  field : Object
-};
-
-const PasswordInput = ({ className, placeholder, field } : PasswordInputProps) => {
+const PasswordInput = ({
+  className = "",
+  placeholder,
+  field,
+  ...props
+}: PasswordInputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
     <div className="relative flex items-center">
-      <Input 
+      <Input
+        type={showPassword ? "text" : "password"}
         minLength={8}
         maxLength={101}
-        type={(showPassword) ? "text" : "password"}
-        className={`${className} rounded-r-none focus-visible:ring-0`}
+        className={cn("rounded-r-none focus-visible:ring-0", className)}
         placeholder={placeholder}
-        {...field} />
-
-        <span
-          onClick={() => setShowPassword(prev => !prev)}
-          className="cursor-pointer h-12 px-4 py-2 rounded-r-sm bg-neutral-800 flex place-items-center">
-          <p className="underline text-sm">show</p>
-        </span>
+        {...field}
+        {...props}
+      />
+      <span
+        onClick={() => setShowPassword((prev) => !prev)}
+        className="cursor-pointer h-10 px-4 py-2 rounded-r-sm bg-neutral-800 flex place-items-center sm:h-12"
+      >
+        <p className="underline text-sm">{showPassword ? "hide" : "show"}</p>
+      </span>
     </div>
   );
-}
-
+};
 
 export { PasswordInput };
