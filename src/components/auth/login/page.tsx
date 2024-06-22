@@ -49,7 +49,7 @@ export default function LoginView() {
   };
 
   return (
-    <Card className="mx-auto max-w-lg bg-neutral-900 border-0 sm:border border-neutral-700 text-neutral-300 font-mono">
+    <Card className="mx-auto max-w-lg mt-4 bg-inherit border-0 border-neutral-700 text-neutral-300 font-mono sm:border">
       <CardHeader>
         <h1 className="text-4xl sm:text-5xl font-semibold  text-neutral-100">Login.</h1>
         <p className="pt-2 text-sm sm:text-base font-medium">

@@ -47,7 +47,7 @@ export default function ForgotPasswordView() {
   };
 
   return (
-    <Card className="mx-auto max-w-lg bg-neutral-900 border-0 sm:border border-neutral-700 text-neutral-300 font-mono">
+    <Card className="mx-auto max-w-lg mt-4 bg-inherit border-0 border-neutral-700 text-neutral-300 font-mono sm:border">
       <CardHeader>
         <h1 className="text-3xl sm:text-4xl font-semibold  text-neutral-100">
           Forgot Password.
