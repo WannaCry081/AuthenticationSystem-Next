@@ -29,7 +29,7 @@ const Login = async (values: z.infer<typeof LoginSchema>) => {
 
   cookieStore.set("access", response.data.access, cookieConfig(30));
   cookieStore.set("refresh", response.data.refresh, cookieConfig(60));
-  redirect("/");
+  redirect("/home");
 };
 
 export { Login };
