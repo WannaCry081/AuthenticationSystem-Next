@@ -7,7 +7,7 @@ interface AuthLayoutProps {
 const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <main className="bg-neutral-900 min-h-svh">
-      <section className="py-4 sm:p-6 md:p-8 relative sm:top-4 bg-inherit">
+      <section className="py-4 sm:p-6 md:p-8 bg-inherit">
         {children}
       </section>
     </main>
