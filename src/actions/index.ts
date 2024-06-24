@@ -1,5 +1,5 @@
-export { ForgotPassword } from "@/actions/auth/forgot-password";
-export { Login } from "@/actions/auth/login";
-export { Register } from "@/actions/auth/register";
-export { Logout } from "@/actions/auth/logout";
-export { ResetPassword } from "@/actions/auth/reset-password";
+export { default as LoginAction } from "@/actions/auth/login";
+export { default as RegisterAction } from "@/actions/auth/register";
+export { default as LogoutAction } from "@/actions/auth/logout";
+export { default as ResetPasswordAction } from "@/actions/auth/reset-password";
+export { default as VerifyAction } from "@/actions/auth/verify";
