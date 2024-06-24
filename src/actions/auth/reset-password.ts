@@ -1,14 +1,14 @@
 "use server";
 import * as z from "zod";
 import { redirect } from "next/navigation";
-import { ResetPasswordSchema } from "@/schemas";
-import { ResetPasswordService } from "@/services";
+import { ForgotPasswordSchema } from "@/schemas";
+import { ForgotPasswordService } from "@/services";
 
-const ResetPassword = async (values: z.infer<typeof ResetPasswordSchema>) => {
-  const validatedFields = ResetPasswordSchema.safeParse({
+const ResetPasswordAction = async (
+  values: z.infer<typeof ForgotPasswordSchema>
+) => {
+  const validatedFields = ForgotPasswordSchema.safeParse({
     email: values.email,
-    resetCode: values.resetCode,
-    newPassword: values.newPassword,
   });
 
   if (!validatedFields.success) {
@@ -17,7 +17,7 @@ const ResetPassword = async (values: z.infer<typeof ResetPasswordSchema>) => {
     };
   }
 
-  const response = await ResetPasswordService(validatedFields.data);
+  const response = await ForgotPasswordService(validatedFields.data);
 
   if (!response) {
     return {
@@ -25,7 +25,11 @@ const ResetPassword = async (values: z.infer<typeof ResetPasswordSchema>) => {
     };
   }
 
-  redirect("/login");
+  redirect(
+    `/forgot-password/reset-password?email=${encodeURIComponent(
+      validatedFields.data.email
+    )}`
+  );
 };
 
-export { ResetPassword };
+export default ResetPasswordAction;
