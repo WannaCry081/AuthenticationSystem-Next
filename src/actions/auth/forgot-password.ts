@@ -23,7 +23,11 @@ const ForgotPassword = async (values: z.infer<typeof ForgotPasswordSchema>) => {
     };
   }
 
-  redirect("/forgot-password/reset-password");
+  redirect(
+    `/forgot-password/reset-password?email=${encodeURIComponent(
+      validatedFields.data.email
+    )}`
+  );
 };
 
 export { ForgotPassword };
