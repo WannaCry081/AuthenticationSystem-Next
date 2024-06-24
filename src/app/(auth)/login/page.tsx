@@ -1,9 +1,9 @@
-import { LoginView } from "@/components/auth";
+import { LoginPage } from "@/pages/auth";
 
-export default function LoginPage() {
+export default function Login() {
   return (
     <>
-      <LoginView />
+      <LoginPage />
     </>
   );
 }

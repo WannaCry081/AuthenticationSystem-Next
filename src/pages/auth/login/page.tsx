@@ -1,8 +1,10 @@
 "use client";
 import * as z from "zod";
 import Link from "next/link";
-import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
+import { useState, useTransition } from "react";
+import { LoginSchema } from "@/schemas";
+import { LoginAction } from "@/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Card,
@@ -21,11 +23,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PasswordInput } from "@/components/ui/password-input";
-import { LoginSchema } from "@/schemas";
-import { Login } from "@/actions";
 import { FormError } from "@/components/ui/form-error";
 
-export default function LoginView() {
+const LoginPage = () => {
   const [error, setError] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
@@ -40,7 +40,7 @@ export default function LoginView() {
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     setError("");
     startTransition(() => {
-      Login(values).then((data: any) => {
+      LoginAction(values).then((data: any) => {
         if (data) {
           setError(data.error);
         }
@@ -51,7 +51,9 @@ export default function LoginView() {
   return (
     <Card className="mx-auto max-w-lg mt-4 bg-inherit border-0 border-neutral-700 text-neutral-300 font-mono sm:border">
       <CardHeader>
-        <h1 className="text-4xl sm:text-5xl font-semibold  text-neutral-100">Login.</h1>
+        <h1 className="text-4xl sm:text-5xl font-semibold  text-neutral-100">
+          Login.
+        </h1>
         <p className="pt-2 text-sm sm:text-base font-medium">
           Welcome back! Sign in with your verified email and password to access
           your account.
@@ -132,4 +134,6 @@ export default function LoginView() {
       </CardFooter>
     </Card>
   );
-}
+};
+
+export default LoginPage;
