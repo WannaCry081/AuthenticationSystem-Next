@@ -6,7 +6,7 @@ import { LoginSchema } from "@/schemas";
 import { LoginService } from "@/services";
 import { cookieConfig } from "@/constants/config";
 
-const Login = async (values: z.infer<typeof LoginSchema>) => {
+const LoginAction = async (values: z.infer<typeof LoginSchema>) => {
   const cookieStore = cookies();
   const validatedFields = LoginSchema.safeParse({
     email: values.email,
@@ -32,4 +32,4 @@ const Login = async (values: z.infer<typeof LoginSchema>) => {
   redirect("/home");
 };
 
-export { Login };
+export default LoginAction;
