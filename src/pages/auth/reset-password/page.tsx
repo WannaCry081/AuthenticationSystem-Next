@@ -1,10 +1,11 @@
 "use client";
 import * as z from "zod";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
+import { ResetPasswordSchema } from "@/schemas";
+import { ResetPasswordAction } from "@/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState, useTransition } from "react";
 import {
   Card,
   CardContent,
@@ -19,31 +20,25 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { PasswordInput } from "@/components/ui/password-input";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ResetPasswordSchema } from "@/schemas";
-import { ResetPassword } from "@/actions";
 import { FormError } from "@/components/ui/form-error";
 
-export default function ResetPasswordView() {
-  const searchParam = useSearchParams();
+const ResetPasswordPage = () => {
   const [error, setError] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof ResetPasswordSchema>>({
     resolver: zodResolver(ResetPasswordSchema),
     defaultValues: {
-      email: searchParam?.get("email") as string,
-      resetCode: "",
-      newPassword: "",
+      email: "",
     },
   });
 
   const onSubmit = (values: z.infer<typeof ResetPasswordSchema>) => {
     setError("");
     startTransition(() => {
-      ResetPassword(values).then((data: any) => {
+      ResetPasswordAction(values).then((data: any) => {
         if (data) {
           setError(data.error);
         }
@@ -54,12 +49,12 @@ export default function ResetPasswordView() {
   return (
     <Card className="mx-auto max-w-lg mt-4 bg-inherit border-0 border-neutral-700 text-neutral-300 font-mono sm:border">
       <CardHeader>
-        <h1 className="text-4xl sm:text-5xl font-semibold  text-neutral-100">
-          Reset Password.
+        <h1 className="text-3xl sm:text-4xl font-semibold  text-neutral-100">
+          Forgot Password.
         </h1>
         <p className="pt-2 text-sm sm:text-base font-medium">
-          Reset your password by entering your username, email, and the
-          verification code we sent you.
+          Welcome! Enter your email to receive a link to reset your password and
+          regain access to your account.
         </p>
       </CardHeader>
       <CardContent>
@@ -67,18 +62,19 @@ export default function ResetPasswordView() {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
-              name="resetCode"
+              name="email"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-xs sm:text-sm font-semibold text-neutral-500">
-                    Reset Code
+                    Email Address
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isPending}
+                      minLength={5}
                       maxLength={101}
                       className="bg-neutral-700 border-0 text-base h-12"
-                      placeholder="Enter your code"
+                      placeholder="Enter your email address"
                       {...field}
                     />
                   </FormControl>
@@ -86,29 +82,8 @@ export default function ResetPasswordView() {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="newPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-xs sm:text-sm font-semibold text-neutral-500">
-                    New Password
-                  </FormLabel>
-                  <FormControl>
-                    <PasswordInput
-                      disabled={isPending}
-                      className="bg-neutral-700 border-0 text-base h-12"
-                      placeholder="Enter your password"
-                      field={field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
             <FormError message={error} />
-            <div className="pt-3">
+            <div className="pt-2">
               <Button
                 disabled={isPending}
                 type="submit"
@@ -126,9 +101,11 @@ export default function ResetPasswordView() {
           href="/login"
           className="text-sm sm:text-base text-neutral-500 text-center w-full font-medium hover:text-neutral-300"
         >
-          Remember your account?
+          Remember your password?
         </Link>
       </CardFooter>
     </Card>
   );
-}
+};
+
+export default ResetPasswordPage;
