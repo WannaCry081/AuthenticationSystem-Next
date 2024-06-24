@@ -1,13 +1,13 @@
 "use server";
 import * as z from "zod";
 import { redirect } from "next/navigation";
-import { ForgotPasswordSchema } from "@/schemas";
-import { ForgotPasswordService } from "@/services";
+import { ResetPasswordSchema } from "@/schemas";
+import { ResetPasswordService } from "@/services";
 
 const ResetPasswordAction = async (
-  values: z.infer<typeof ForgotPasswordSchema>
+  values: z.infer<typeof ResetPasswordSchema>
 ) => {
-  const validatedFields = ForgotPasswordSchema.safeParse({
+  const validatedFields = ResetPasswordSchema.safeParse({
     email: values.email,
   });
 
@@ -17,7 +17,7 @@ const ResetPasswordAction = async (
     };
   }
 
-  const response = await ForgotPasswordService(validatedFields.data);
+  const response = await ResetPasswordService(validatedFields.data);
 
   if (!response) {
     return {

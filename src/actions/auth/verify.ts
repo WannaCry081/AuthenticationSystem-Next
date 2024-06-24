@@ -1,11 +1,11 @@
 "use server";
 import * as z from "zod";
 import { redirect } from "next/navigation";
-import { ResetPasswordSchema } from "@/schemas";
-import { ResetPasswordService } from "@/services";
+import { VerifySchema } from "@/schemas";
+import { VerifyService } from "@/services";
 
-const VerifyAction = async (values: z.infer<typeof ResetPasswordSchema>) => {
-  const validatedFields = ResetPasswordSchema.safeParse({
+const VerifyAction = async (values: z.infer<typeof VerifySchema>) => {
+  const validatedFields = VerifySchema.safeParse({
     email: values.email,
     resetCode: values.resetCode,
     newPassword: values.newPassword,
@@ -17,7 +17,7 @@ const VerifyAction = async (values: z.infer<typeof ResetPasswordSchema>) => {
     };
   }
 
-  const response = await ResetPasswordService(validatedFields.data);
+  const response = await VerifyService(validatedFields.data);
 
   if (!response) {
     return {
