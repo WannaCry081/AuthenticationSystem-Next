@@ -1,5 +1,5 @@
-export { ForgotPasswordService } from "./auth/forgot-password";
-export { LoginService } from "./auth/login";
-export { RegisterService } from "./auth/register";
-export { LogoutService } from "./auth/logout";
-export { ResetPasswordService } from "./auth/reset-password";
+export { default as LoginService } from "./auth/login";
+export { default as RegisterService } from "./auth/register";
+export { default as LogoutService } from "./auth/logout";
+export { default as VerifyService } from "./auth/verify";
+export { default as ResetPasswordService } from "./auth/reset-password";
