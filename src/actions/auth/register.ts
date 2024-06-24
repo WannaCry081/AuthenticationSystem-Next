@@ -6,7 +6,7 @@ import { RegisterSchema } from "@/schemas";
 import { RegisterService } from "@/services";
 import { cookieConfig } from "@/constants/config";
 
-const Register = async (values: z.infer<typeof RegisterSchema>) => {
+const RegisterAction = async (values: z.infer<typeof RegisterSchema>) => {
   const cookieStore = cookies();
   const validatedFields = RegisterSchema.safeParse({
     username: values.username,
@@ -34,4 +34,4 @@ const Register = async (values: z.infer<typeof RegisterSchema>) => {
   redirect("/home");
 };
 
-export { Register };
+export default RegisterAction;
