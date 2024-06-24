@@ -1,4 +1,4 @@
-export { default as LoginView } from "./login/page";
-export { default as RegisterView } from "./register/page";
-export { default as ForgotPasswordView } from "./forgot-password/page";
-export { default as ResetPasswordView } from "./reset-password/page";
+export { default as LoginPage } from "./login/page";
+export { default as RegisterPage } from "./register/page";
+export { default as ResetPasswordPage } from "./reset-password/page";
+export { default as VerifyPage } from "./verify/page";
