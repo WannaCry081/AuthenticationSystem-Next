@@ -1,9 +1,9 @@
-import { HomeView } from "@/components/dashboard"
+import { HomePage } from "@/pages/dashboard";
 
-export default function HomePage() {
+export default function Home() {
   return (
     <>
-      <HomeView />
+      <HomePage />
     </>
   );
 }

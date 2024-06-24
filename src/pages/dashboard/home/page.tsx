@@ -6,15 +6,14 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Logout } from "@/actions";
+import { LogoutAction } from "@/actions";
 
-const HomeView = () => {
-
+const HomePage = () => {
   const handleLogout = async () => {
     try {
-      await Logout();
+      await LogoutAction();
     } catch (error) {
-      console.error('Error during logout:', error);
+      console.error("Error during logout:", error);
     }
   };
 
@@ -25,7 +24,6 @@ const HomeView = () => {
       </CardHeader>
       <CardContent>
         <div>
-          
           <Button
             onClick={handleLogout}
             size="lg"
@@ -47,4 +45,4 @@ const HomeView = () => {
   );
 };
 
-export default HomeView;
+export default HomePage;
