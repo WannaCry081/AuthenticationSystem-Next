@@ -1,9 +1,9 @@
-import { RegisterView } from "@/components/auth";
+import { RegisterPage } from "@/pages/auth";
 
-export default function RegisterPage() {
+export default function Register() {
   return (
     <>
-      <RegisterView />
+      <RegisterPage />
     </>
   );
 }

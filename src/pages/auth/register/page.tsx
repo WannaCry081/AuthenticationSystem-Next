@@ -1,8 +1,10 @@
 "use client";
 import * as z from "zod";
 import Link from "next/link";
-import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
+import { useState, useTransition } from "react";
+import { RegisterSchema } from "@/schemas";
+import { RegisterAction } from "@/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Card,
@@ -21,11 +23,9 @@ import {
 import { PasswordInput } from "@/components/ui/password-input";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { RegisterSchema } from "@/schemas";
-import { Register } from "@/actions";
 import { FormError } from "@/components/ui/form-error";
 
-export default function RegisterView() {
+const RegisterPage = () => {
   const [error, setError] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
@@ -42,7 +42,7 @@ export default function RegisterView() {
   const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
     setError("");
     startTransition(() => {
-      Register(values).then((data: any) => {
+      RegisterAction(values).then((data: any) => {
         if (data) {
           setError(data.error);
         }
@@ -174,4 +174,6 @@ export default function RegisterView() {
       </CardFooter>
     </Card>
   );
-}
+};
+
+export default RegisterPage;
