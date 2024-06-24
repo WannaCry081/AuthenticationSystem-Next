@@ -1,17 +1,13 @@
 import * as z from "zod";
 
 const ResetPasswordSchema = z.object({
-  email: z.string().email({
-    message: "Email Address is required.",
-  }),
-  resetCode: z.string(),
-  newPassword: z
+  email: z
     .string()
-    .min(1, {
-      message: "Password must be at least 8 characters.",
+    .email({
+      message: "Email Address is required.",
     })
     .max(100, {
-      message: "Password can be at most 100 characters.",
+      message: "Email Address must not exceed 100 characters.",
     }),
 });
 
