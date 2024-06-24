@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { LogoutService } from "@/services";
 
-const Logout = async () => {
+const LogoutAction = async () => {
   const cookieStore = cookies();
   const refreshToken = cookieStore.get("refresh")?.value;
 
@@ -21,4 +21,4 @@ const Logout = async () => {
   redirect("/");
 };
 
-export { Logout };
+export default LogoutAction;
