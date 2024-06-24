@@ -108,7 +108,7 @@ const LoginPage = () => {
 
             <FormError message={error} />
             <Link
-              href="/forgot-password"
+              href="/reset-password"
               className="float-right text-sm sm:text-base text-neutral-500 font-medium hover:text-neutral-300"
             >
               Forgot Password?

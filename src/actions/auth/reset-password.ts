@@ -26,7 +26,7 @@ const ResetPasswordAction = async (
   }
 
   redirect(
-    `/forgot-password/reset-password?email=${encodeURIComponent(
+    `/reset-password/verify?email=${encodeURIComponent(
       validatedFields.data.email
     )}`
   );
