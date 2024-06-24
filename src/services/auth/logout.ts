@@ -13,4 +13,4 @@ const LogoutService = async (data: LogoutServiceProps) => {
   }
 };
 
-export { LogoutService };
+export default LogoutService;

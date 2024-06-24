@@ -16,4 +16,4 @@ const RegisterService = async (data: RegisterServiceProps) => {
   }
 };
 
-export { RegisterService };
+export default RegisterService;

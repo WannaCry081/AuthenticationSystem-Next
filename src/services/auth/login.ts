@@ -14,4 +14,4 @@ const LoginService = async (data: LoginServiceProps) => {
   }
 };
 
-export { LoginService };
+export default LoginService;
