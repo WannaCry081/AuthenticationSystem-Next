@@ -3,7 +3,7 @@ export function cookieConfig(maxAge: number) {
   const HOST = process.env.NEXT_PUBLIC_HOSt;
 
   const config = {
-    maxAge: maxAge,
+    maxAge: maxAge * 60,
     path: "/",
     domain: HOST,
     httpOnly: !(ENVIRONMENT === "production"),
