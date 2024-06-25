@@ -1,22 +1,14 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { LogoutAction } from "@/actions";
+import { ProfileCard } from "@/components/custom/profile-card";
+import { LogoutButton } from "@/components/custom/logout-button";
 
 const HomePage = () => {
-  const handleLogout = async () => {
-    try {
-      await LogoutAction();
-    } catch (error) {
-      console.error("Error during logout:", error);
-    }
-  };
-
   return (
     <Card className="bg-inherit border-0 border-neutral-700  mx-auto text-neutral-100 font-mono max-w-lg sm:border mt-4">
       <CardHeader>
@@ -24,14 +16,8 @@ const HomePage = () => {
       </CardHeader>
       <CardContent>
         <div>
-          <Button
-            onClick={handleLogout}
-            size="lg"
-            variant="destructive"
-            className="bg-destructive/60 w-full"
-          >
-            Logout
-          </Button>
+          <ProfileCard />
+          <LogoutButton />
         </div>
       </CardContent>
       <CardFooter>
